@@ -1,0 +1,45 @@
+:root {
+  --color-primary: #0f1b3f;
+  --color-primary-light: #080f63;
+  --color-primary-dark: #ba265d;
+  --color-grey-light-1: #faf9f9;
+  --color-grey-light-2: #f4f2f2;
+  --color-grey-light-3: #f0eeee;
+  --color-grey-light-4: #ccc;
+  --color-grey-dark-1: #333;
+  --color-grey-dark-2: #777;
+  --color-grey-dark-3: #999;
+
+  --shadow-dark: 0 2rem 6rem #00000031;
+  --shadow-light: 0 2rem 5rem rgba(0, 0, 0, 0.08);
+
+  --line: 0.1rem solid var(--color-grey-light-2);
+}
+
+$bp-largest: 75em; //1200px
+$bp-large: 68.75em; // 1100px
+$bp-medium: 56.25em; // 900px
+$bp-small: 37.5em; // 600px
+$bp-smaller: 33.45em; // 535px
+$bp-smallest: 26.7em; // 430px
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+body {
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+  line-height: 1.7rem;
+  font-weight: 400;
+  font-size: 1.8rem;
+}

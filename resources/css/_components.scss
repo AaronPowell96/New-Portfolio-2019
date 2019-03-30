@@ -1,0 +1,190 @@
+/////////////////////////////
+//SIDE NAV
+.side-nav {
+  grid-column: 1/-1;
+  grid-row: 1/2;
+  height: 60px;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  justify-content: space-between;
+  overflow: hidden;
+  font-family: "Raleway", sans-serif;
+  font-weight: 300;
+
+  &__link:link,
+  &__link:visited {
+    text-decoration: none;
+    color: var(--color-grey-light-1);
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    display: grid;
+    position: relative;
+    justify-content: center;
+    align-content: stretch;
+    transition: color 1s;
+  }
+
+  &__link:hover,
+  &__link:active {
+    color: var(--color-primary);
+  }
+  &__item--active > a.side-nav__link {
+    color: var(--color-primary-light);
+  }
+
+  &__item {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    display: grid;
+
+    &:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      height: 100%;
+      width: 3px;
+      background-color: var(--color-grey-light-3);
+      -webkit-transform: scaleY(0);
+      transform: scaleY(0);
+      -webkit-transition: width 0.3s cubic-bezier(1, 0, 0, 1) 0.2s,
+        background-color 0.1s, -webkit-transform 0.2s;
+      transition: width 0.3s cubic-bezier(1, 0, 0, 1) 0.2s,
+        background-color 0.1s, -webkit-transform 0.2s;
+      transition: transform 0.2s, width 0.3s cubic-bezier(1, 0, 0, 1) 0.2s,
+        background-color 0.1s;
+      transition: transform 0.2s, width 0.3s cubic-bezier(1, 0, 0, 1) 0.2s,
+        background-color 0.1s, -webkit-transform 0.2s;
+    }
+
+    &:hover::before,
+    &--active::before,
+    &--active {
+      -webkit-transform: scaleY(1);
+      transform: scaleY(1);
+      width: 100%;
+    }
+    &--active::before,
+    &--active {
+      background-color: var(--color-grey-light-1);
+    }
+  }
+  &__icon {
+    font-size: 3rem;
+    align-self: center;
+    justify-self: center;
+  }
+}
+.sidebar {
+  justify-content: space-around;
+  grid-row: 4/5;
+  grid-column: 1/-1;
+  height: 60px;
+  align-items: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  background-color: var(--color-primary);
+}
+.sticky + .content {
+  padding-top: 60px;
+}
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: var(--color-primary-light);
+}
+
+/////////////////////////////
+//LANDING PAGE
+
+.landingPage {
+  position: relative;
+  background-image: linear-gradient(
+      to bottom,
+      rgba(15, 27, 63, 0.2),
+      rgba(15, 27, 63, 0.8),
+      rgba(15, 27, 63, 0.8),
+      rgba(15, 27, 63, 1),
+      rgba(15, 27, 63, 1)
+    ),
+    url(../img/laptopbg-min.jpg);
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  grid-column: 1 / -1;
+  height: 80vh;
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-columns: repeat(3, 1fr);
+  & > .title {
+    background-color: rgba(134, 134, 134, 0.212);
+    background-size: cover;
+    padding: 4vw;
+    color: #ccc;
+    grid-column: 1/-1;
+    grid-row: 2/3;
+    align-self: center;
+    font-family: "Raleway", sans-serif;
+    font-weight: 600;
+    font-size: 3rem;
+    justify-self: center;
+    z-index: 999;
+    text-transform: uppercase;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+  & > .icons {
+    grid-row: 3/4;
+    grid-column: 1/-1;
+    align-content: start;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    justify-content: space-around;
+    align-content: start;
+    & > .animatedIcon-0,
+    & > .animatedIcon-1,
+    & > .animatedIcon-2,
+    & > .animatedIcon-3 {
+      opacity: 0;
+    }
+    & > div > i {
+      justify-self: center;
+      font-size: 3rem;
+      color: #fff;
+      transition: all 0.2s;
+      &.icon {
+        &-js:hover {
+          color: yellow;
+          transform: scale(1.3);
+        }
+        &-css {
+          align-self: start;
+          grid-column: 2/3;
+          transform: rotate(-10deg);
+        }
+        &-html {
+          align-self: end;
+          grid-column: 3/4;
+          transform: rotate(-10deg);
+        }
+        &-sql {
+          align-self: start;
+          grid-column: 4/5;
+          transform: rotate(10deg);
+        }
+      }
+    }
+  }
+}
+
+/////////////////////////////
+//SECTIONS
+section {
+  grid-column: 1/-1;
+  padding: 30px;
+  background-image: url(../img/laptopbg-min.jpg);
+  background-attachment: fixed;
+}
