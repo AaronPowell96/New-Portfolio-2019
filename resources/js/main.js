@@ -3,19 +3,33 @@ function sleep(ms) {
 }
 
 document.querySelector(".title").addEventListener("click", function() {
-  console.log(this);
   this.classList.toggle("text-flicker-in-glow");
-  animateIcons();
 });
 
-async function animateIcons() {
+(async function animateIcons() {
   for (let index = 0; index < 4; index++) {
-    document.querySelector(`.animatedIcon-${index}`).style.opacity = "1";
-    let elements = document.querySelector(`.animatedIcon-${index}`).children;
-    elements[0].classList.add("animated");
+    let icon = document.querySelector(`.animatedIcon-${index}`);
+    icon.style.opacity = "1";
+    let elements = icon.children;
+    elements[0].classList.add("scale-in-center");
     await sleep(500);
   }
+})();
+
+const icons = document.querySelector(".icons").children;
+console.log(icons[1]);
+for (i = 0; i < icons.length; i++) {
+  icons[i].addEventListener("mouseover", async function() {
+    this.classList.add("text-pop-up-top");
+    await sleep(1000);
+    this.classList.remove("text-pop-up-top");
+  });
 }
+/* icons[i].addEventListener("mouseleave", function() {
+    this.classList.toggle("text-pop-up-top");
+  });
+} //llist of icons*/
+
 // When the user scrolls the page, execute myFunction
 window.onscroll = function() {
   myFunction();
