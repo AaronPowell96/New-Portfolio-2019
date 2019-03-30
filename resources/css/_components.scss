@@ -112,9 +112,10 @@
     url(../img/laptopbg-min.jpg);
   background-size: cover;
   background-attachment: fixed;
-  background-position: center;
+  background-position: left;
   grid-column: 1 / -1;
   height: 80vh;
+  min-height: 400px;
   display: grid;
   grid-template-rows: 1fr 1fr 1fr;
   grid-template-columns: repeat(3, 1fr);

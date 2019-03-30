@@ -167,9 +167,10 @@ body {
   background-image: linear-gradient(to bottom, rgba(15, 27, 63, 0.2), rgba(15, 27, 63, 0.8), rgba(15, 27, 63, 0.8), #0f1b3f, #0f1b3f), url(../img/laptopbg-min.jpg);
   background-size: cover;
   background-attachment: fixed;
-  background-position: center;
+  background-position: left;
   grid-column: 1 / -1;
   height: 80vh;
+  min-height: 400px;
   display: -ms-grid;
   display: grid;
   -ms-grid-rows: 1fr 1fr 1fr;
