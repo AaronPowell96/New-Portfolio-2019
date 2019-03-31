@@ -31,9 +31,9 @@ html {
 }
 
 body {
+  font-family: "Montserrat", sans-serif;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  font-family: "Montserrat", sans-serif;
   line-height: 1.7rem;
   font-weight: 400;
   font-size: 1.8rem;
@@ -63,6 +63,13 @@ h3 {
   display: grid;
   -ms-grid-columns: (1fr)[8];
       grid-template-columns: repeat(8, 1fr);
+}
+
+section {
+  grid-column: 1/-1;
+  padding: 30px;
+  background-color: #ccc;
+  background-attachment: fixed;
 }
 
 .side-nav {
@@ -220,6 +227,61 @@ h3 {
   cursor: pointer;
 }
 
+.landingPage .viewProjects {
+  grid-column: 1/-1;
+  -ms-flex-item-align: start;
+      -ms-grid-row-align: start;
+      align-self: start;
+  -ms-grid-column-align: center;
+      justify-self: center;
+  position: relative;
+  padding: 10px;
+  border: 0;
+  background-color: transparent;
+  border: none;
+  color: white;
+  text-align: center;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  z-index: 9999;
+  font-size: 16px;
+  -webkit-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+  cursor: pointer;
+}
+
+.landingPage .viewProjects::after {
+  content: "";
+  top: 0;
+  left: 0;
+  z-index: 0;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  border: 2px solid white;
+  -webkit-transform: skew(-20deg);
+          transform: skew(-20deg);
+}
+
+.landingPage .viewProjects:hover {
+  color: var(--color-primary-light);
+}
+
+.landingPage .viewProjects:hover::after {
+  z-index: -1;
+  background-color: white;
+}
+
+.landingPage .viewProjects:active {
+  color: var(--color-primary-light);
+}
+
+.landingPage .viewProjects:active::after {
+  z-index: -1;
+  background-color: var(--color-grey-light-1);
+  border: 2px outset var(--color-primary);
+}
+
 .landingPage > .icons {
   -ms-grid-row: 1;
   -ms-grid-row-span: 1;
@@ -270,13 +332,6 @@ h3 {
 
 .landingPage > .icons > div > i.icon-twit:hover {
   color: #00aced;
-}
-
-section {
-  grid-column: 1/-1;
-  padding: 30px;
-  background-image: url(../img/laptopbg-min.jpg);
-  background-attachment: fixed;
 }
 
 /* ----------------------------------------------

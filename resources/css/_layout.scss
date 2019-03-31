@@ -2,3 +2,11 @@
   display: grid;
   grid-template-columns: repeat(8, 1fr);
 }
+/////////////////////////////
+//SECTIONS
+section {
+  grid-column: 1/-1;
+  padding: 30px;
+  background-color: #ccc;
+  background-attachment: fixed;
+}
