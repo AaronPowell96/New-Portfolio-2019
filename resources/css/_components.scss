@@ -6,12 +6,15 @@
   height: 60px;
   list-style: none;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  justify-content: space-between;
-  overflow: hidden;
+  grid-template-columns: repeat(4, 1fr) 40px;
+  grid-template-rows: 60px minmax(100px, 10vw);
+  grid-column-gap: 1vw;
+  justify-content: space-around;
+  overflow-y: visible;
   font-family: "Raleway", sans-serif;
   font-weight: 300;
 
+  &__link,
   &__link:link,
   &__link:visited {
     text-decoration: none;
@@ -28,8 +31,12 @@
   &__link:hover,
   &__link:active {
     color: var(--color-primary);
+    &.close::after,
+    &.close::before {
+      background-color: var(--color-primary);
+    }
   }
-  &__item--active > a.side-nav__link {
+  &__item--active > .side-nav__link {
     color: var(--color-primary-light);
   }
 
@@ -37,8 +44,8 @@
     position: relative;
     height: 100%;
     width: 100%;
+    grid-row: 1/2;
     display: grid;
-
     &:before {
       content: "";
       position: absolute;
@@ -70,12 +77,61 @@
       background-color: var(--color-grey-light-1);
     }
   }
+  &__subMenu {
+    grid-row: 2/3;
+    grid-column: 1/-1;
+    background-color: rgba(15, 27, 63, 0.8);
+  }
   &__icon {
+    z-index: 1;
     font-size: 3rem;
     align-self: center;
     justify-self: center;
   }
 }
+
+.more-dots {
+  cursor: pointer;
+}
+.close:before,
+.close:after {
+  pointer-events: none;
+  align-self: center;
+  justify-self: center;
+  position: absolute;
+  content: " ";
+  height: 26px;
+  width: 4px;
+  z-index: 0;
+  background-color: var(--color-primary);
+  transition: all 1s;
+}
+.close::before {
+  transform: rotate(90deg);
+}
+.close::after {
+  transform: rotate(-90deg);
+}
+.open {
+  background-color: var(--color-grey-light-1);
+}
+.open::before,
+.open::after {
+  pointer-events: none;
+  display: block;
+  align-self: center;
+  justify-self: center;
+  transition: all 0.5s;
+  height: 36px;
+  background-color: var(--color-primary);
+}
+.open::before {
+  transform: rotate(45deg);
+}
+.open::after {
+  transform: rotate(-45deg);
+}
+
 .sidebar {
   justify-content: space-around;
   grid-row: 4/5;
@@ -183,8 +239,18 @@
     display: grid;
     grid-template-columns: auto auto auto auto;
     justify-content: space-around;
-    align-content: center;
-    transform: translateY(-30%);
+    align-content: start;
+    padding-top: 3px;
+    max-height: 40px;
+    background: linear-gradient(
+      to bottom,
+      rgba(83, 83, 83, 0.6),
+      rgba(83, 83, 83, 0.4),
+      rgba(83, 83, 83, 0.4),
+      rgba(83, 83, 83, 0.3),
+      rgba(83, 83, 83, 0.2),
+      rgba(83, 83, 83, 0)
+    );
     & > .animatedIcon-0,
     & > .animatedIcon-1,
     & > .animatedIcon-2,
