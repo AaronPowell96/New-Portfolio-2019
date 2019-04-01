@@ -339,11 +339,11 @@ section {
 }
 
 .landingPage .viewProjects:hover {
-  color: var(--color-primary);
+  color: var(--color-primary-light);
 }
 
 .landingPage .viewProjects:hover::after {
-  border: 20px solid var(--color-grey-light-1);
+  border: 1.91rem solid var(--color-grey-light-1);
   z-index: -1;
 }
 

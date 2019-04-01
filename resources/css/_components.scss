@@ -216,9 +216,9 @@
       transition: all 0.3s ease-in-out;
     }
     &:hover {
-      color: var(--color-primary);
+      color: var(--color-primary-light);
       &::after {
-        border: 20px solid var(--color-grey-light-1);
+        border: 1.91rem solid var(--color-grey-light-1);
         z-index: -1;
       }
     }
