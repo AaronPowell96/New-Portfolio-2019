@@ -136,15 +136,12 @@
   justify-content: space-around;
   grid-row: 4/5;
   grid-column: 1/-1;
-  height: 60px;
   align-items: center;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   background-color: var(--color-primary);
 }
-.sticky + .content {
-  padding-top: 60px;
-}
+
 .sticky {
   position: fixed;
   top: 0;
@@ -198,13 +195,13 @@
     padding: 10px;
     border: 0;
     background-color: transparent;
-    border: none;
     color: white;
     text-align: center;
     transform: translateY(-50%);
-    z-index: 9999;
     font-size: 16px;
     transition: all 0.5s ease-in-out;
+    border: 2px solid transparent;
+
     cursor: pointer;
     &::after {
       content: "";
@@ -214,14 +211,15 @@
       position: absolute;
       height: 100%;
       width: 100%;
-      border: 2px solid white;
+      border: 2px solid var(--color-grey-light-1);
       transform: skew(-20deg);
+      transition: all 0.3s ease-in-out;
     }
     &:hover {
-      color: var(--color-primary-light);
+      color: var(--color-primary);
       &::after {
+        border: 20px solid var(--color-grey-light-1);
         z-index: -1;
-        background-color: white;
       }
     }
     &:active {
@@ -229,7 +227,7 @@
       &::after {
         z-index: -1;
         background-color: var(--color-grey-light-1);
-        border: 2px outset var(--color-primary);
+        border: 2px outset var(--color-grey-light-3);
       }
     }
   }

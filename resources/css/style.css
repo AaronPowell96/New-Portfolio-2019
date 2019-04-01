@@ -244,7 +244,6 @@ section {
   -ms-grid-row-span: 1;
   grid-row: 4/5;
   grid-column: 1/-1;
-  height: 60px;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -253,10 +252,6 @@ section {
   -ms-grid-columns: 1fr 1fr 1fr 1fr;
       grid-template-columns: 1fr 1fr 1fr 1fr;
   background-color: var(--color-primary);
-}
-
-.sticky + .content {
-  padding-top: 60px;
 }
 
 .sticky {
@@ -317,15 +312,14 @@ section {
   padding: 10px;
   border: 0;
   background-color: transparent;
-  border: none;
   color: white;
   text-align: center;
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
-  z-index: 9999;
   font-size: 16px;
   -webkit-transition: all 0.5s ease-in-out;
   transition: all 0.5s ease-in-out;
+  border: 2px solid transparent;
   cursor: pointer;
 }
 
@@ -337,18 +331,20 @@ section {
   position: absolute;
   height: 100%;
   width: 100%;
-  border: 2px solid white;
+  border: 2px solid var(--color-grey-light-1);
   -webkit-transform: skew(-20deg);
           transform: skew(-20deg);
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 
 .landingPage .viewProjects:hover {
-  color: var(--color-primary-light);
+  color: var(--color-primary);
 }
 
 .landingPage .viewProjects:hover::after {
+  border: 20px solid var(--color-grey-light-1);
   z-index: -1;
-  background-color: white;
 }
 
 .landingPage .viewProjects:active {
@@ -358,7 +354,7 @@ section {
 .landingPage .viewProjects:active::after {
   z-index: -1;
   background-color: var(--color-grey-light-1);
-  border: 2px outset var(--color-primary);
+  border: 2px outset var(--color-grey-light-3);
 }
 
 .landingPage > .icons {

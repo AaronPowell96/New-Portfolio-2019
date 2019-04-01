@@ -24,7 +24,7 @@ icons.classList.add("scale-in-center");
 const moredots = document.querySelector(".more-dots");
 moredots.addEventListener(
   "click",
-   function() {
+  function() {
     this.firstElementChild.classList.toggle("open");
     this.firstElementChild.firstElementChild.classList.toggle("fa-bars");
   },
