@@ -73,9 +73,10 @@ for (let i = 0; i < sideNavItems.length - 1; i++) {
 }
 
 var sections = document.querySelectorAll("section");
-let section1 = sections[0].offsetTop - 60;
-let section2 = sections[1].offsetTop - 60;
+let section1 = sections[0].offsetTop - 100;
+let section2 = sections[1].offsetTop - 100;
 //let section3 = sections[2].offsetTop - 60;
+
 function sectionDetection() {
   if (window.pageYOffset >= section1 && !(window.pageYOffset >= section2)) {
     removeActiveClass();
@@ -89,29 +90,30 @@ function sectionDetection() {
   }
 }
 
-var items = document.querySelectorAll(".timeline li");
+const highlights = document.querySelectorAll(".timeline li");
 
 function isElementInViewport(el) {
-  var rect = el.getBoundingClientRect();
+  let rect = el.getBoundingClientRect();
   return (
-    rect.top >= 0 &&
+    rect.top >= 50 &&
     rect.left >= 0 &&
-    rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+    rect.bottom <=
+      (window.innerHeight || document.documentElement.clientHeight) &&
     rect.right <= (window.innerWidth || document.documentElement.clientWidth)
   );
 }
 
-function callbackFunc() {
-  for (var i = 0; i < items.length; i++) {
-    if (isElementInViewport(items[i])) {
-      if(!items[i].classList.contains("in-view")){
-        items[i].classList.add("in-view");
+function checkInView() {
+  for (let i = 0; i < highlights.length; i++) {
+    if (isElementInViewport(highlights[i])) {
+      if (!highlights[i].classList.contains("in-view")) {
+        highlights[i].classList.add("in-view");
       }
-    } else if(items[i].classList.contains("in-view")) {
-        items[i].classList.remove("in-view");
+    } else if (highlights[i].classList.contains("in-view")) {
+      highlights[i].classList.remove("in-view");
     }
   }
 }
- 
-window.addEventListener("load", callbackFunc);
-window.addEventListener("scroll", callbackFunc);
+
+window.addEventListener("load", checkInView);
+window.addEventListener("scroll", checkInView);
