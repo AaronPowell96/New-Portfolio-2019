@@ -21,12 +21,19 @@ icons.classList.add("scale-in-center");
   }
 })();
 
+const subMenu = document.querySelector(".side-nav__subMenu");
 const moredots = document.querySelector(".more-dots");
 moredots.addEventListener(
   "click",
   function() {
     this.firstElementChild.classList.toggle("open");
     this.firstElementChild.firstElementChild.classList.toggle("fa-bars");
+    console.log(subMenu);
+    if (subMenu.classList.contains("slide-in-top")) {
+      subMenu.classList.toggle("slide-out-top");
+    } else {
+      subMenu.classList.toggle("slide-in-top");
+    }
   },
   true
 );
@@ -73,8 +80,8 @@ for (let i = 0; i < sideNavItems.length - 1; i++) {
 }
 
 var sections = document.querySelectorAll("section");
-let section1 = sections[0].offsetTop - 100;
-let section2 = sections[1].offsetTop - 100;
+let section1 = sections[0].offsetTop - 300;
+let section2 = sections[1].offsetTop - 300;
 //let section3 = sections[2].offsetTop - 60;
 
 function sectionDetection() {
@@ -98,7 +105,7 @@ function isElementInViewport(el) {
     rect.top >= 50 &&
     rect.left >= 0 &&
     rect.bottom <=
-      (window.innerHeight || document.documentElement.clientHeight) &&
+      (window.innerHeight +100|| document.documentElement.clientHeight +100) &&
     rect.right <= (window.innerWidth || document.documentElement.clientWidth)
   );
 }
