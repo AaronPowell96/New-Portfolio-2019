@@ -21,7 +21,7 @@ icons.classList.add("scale-in-center");
   }
 })();
 
-const subMenu = document.querySelector(".side-nav__subMenu");
+const subMenu = document.querySelector(".sidebar__subMenu");
 const moredots = document.querySelector(".more-dots");
 moredots.addEventListener(
   "click",
