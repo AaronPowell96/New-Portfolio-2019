@@ -20,29 +20,40 @@
 
   <body>
     <div class="container">
+        <!--Right click contextMenu-->
+      <ul class="contextMenu hidden">
+        <li>
+          <a class="fab fa-github icon-gh" href="#"></a>
+          <a class="fab fa-codepen icon-cp" href="#"></a>
+          <a class="fab fa-linkedin icon-li" href="#"></a>
+          <a class="fab fa-twitter icon-twit" href="#"></a>
+        </li>
+        <span>&copy;Aaron Powell</span>
+      </ul>
+
+      <!--Main landing page-->
       <div id="one" class="landingPage section">
         <nav class="sidebar">
           <ul class="side-nav">
-            <!--Make active side-nav__item--active-->
-            <li class="side-nav__item side-nav__item--active">
+            <li class="side-nav__item side-nav__item--active home">
               <a href="#" class="side-nav__link">
                 <i class="side-nav__icon fas fa-home"></i>
                 <span>Home</span>
               </a>
             </li>
-            <li class="side-nav__item">
+            <li class="side-nav__item milestones">
               <a href="#" class="side-nav__link">
-                <i class="side-nav__icon fab fa-js icon-js"></i>
-                <span>About</span>
+                <i class="side-nav__icon fas fa-graduation-cap"></i>
+                <span>Milestones</span>
               </a>
             </li>
-            <li class="side-nav__item">
+            <li class="side-nav__item projects">
               <a href="#" class="side-nav__link">
                 <i class="side-nav__icon fa fa-code"></i>
                 <span>Projects</span>
               </a>
             </li>
-            <li class="side-nav__item">
+            <li class="side-nav__item other">
               <a href="#" class="side-nav__link">
                 <i class="side-nav__icon fas fa-pen-fancy"></i>
                 <span>my life</span>
@@ -53,23 +64,23 @@
                 <i class="side-nav__icon fas fa-bars"></i>
               </div>
             </li>
-          </ul>
-          <div class="sidebar__subMenu">
+            <div class="side-nav__subMenu">
               <div class="side-nav__subMenu--container">
                 <ul>
                   <li>Hello</li>
                   <li>Hello</li>
                   <li>Hello</li>
-                <li></li>
-              </ul>
-              <div class="sidebar__subMenu--container-icons">
-                <i class="fab fa-github icon-gh"></i>
-                  <i class="fab fa-codepen icon-cp"></i>
-                  <i class="fab fa-facebook icon-fb"></i>
-                  <i class="fab fa-twitter icon-twit"></i>
-                </div>
+                  <li class="line"></li>
+                  <div class="side-nav__subMenu--container-icons">
+                    <i class="fab fa-github icon-gh"></i>
+                    <i class="fab fa-codepen icon-cp"></i>
+                    <i class="fab fa-linkedin icon-li"></i>
+                    <i class="fab fa-twitter icon-twit"></i>
+                  </div>
+                </ul>
               </div>
             </div>
+          </ul>
         </nav>
         <!--
         <div id="nav">
@@ -85,7 +96,7 @@
             <i class="fab fa-codepen icon-cp"></i>
           </div>
           <div class="animatedIcon-2">
-            <i class="fab fa-facebook icon-fb"></i>
+            <i class="fab fa-linkedin icon-li"></i>
           </div>
           <div class="animatedIcon-3">
             <i class="fab fa-twitter icon-twit"></i>

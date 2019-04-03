@@ -1,16 +1,18 @@
+///////////////////////////
+//Reused Functions
+//////////////////////////
+//Sleeper
 function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
-
+//////////////////////////
+//Landing Page
+//////////////////////////
+//Title flash on click
 document.querySelector(".title").addEventListener("click", function() {
   this.classList.toggle("text-flicker-in-glow");
 });
-
-/*
-let icons = document.querySelector(".icons");
-icons.style.opacity = "1";
-icons.classList.add("scale-in-center");
-*/
+//Icons animate in on webpage load IFFE async
 (async function animateIcons() {
   for (let index = 0; index < 4; index++) {
     let icon = document.querySelector(`.animatedIcon-${index}`);
@@ -21,28 +23,40 @@ icons.classList.add("scale-in-center");
   }
 })();
 
-const subMenu = document.querySelector(".sidebar__subMenu");
-const moredots = document.querySelector(".more-dots");
-moredots.addEventListener(
-  "click",
-  function() {
-    this.firstElementChild.classList.toggle("open");
-    this.firstElementChild.firstElementChild.classList.toggle("fa-bars");
-    console.log(subMenu);
-    if (subMenu.classList.contains("slide-in-top")) {
-      subMenu.classList.toggle("slide-out-top");
-    } else {
-      subMenu.classList.toggle("slide-in-top");
-    }
-  },
-  true
-);
+///////////////////////////////////
+//Menu
+//////////////////////////////////
 
-// When the user scrolls the page, execute myFunction
-window.onscroll = function() {
+//Submenu - hamburger menu
+(() => {
+  const subMenu = document.querySelector(".side-nav__subMenu");
+  const moredots = document.querySelector(".more-dots");
+  moredots.addEventListener(
+    "click",
+    function() {
+      this.firstElementChild.classList.toggle("open");
+      this.firstElementChild.firstElementChild.classList.toggle("fa-bars");
+      console.log(subMenu);
+      if (subMenu.classList.contains("scale-in-ver-top")) {
+        subMenu.classList.toggle("scale-out-ver-top");
+      } else {
+        subMenu.classList.toggle("scale-in-ver-top");
+      }
+    },
+    true
+  );
+})();
+
+////////////////////////////////////
+//Window events / User position events
+///////////////////////////////////
+window.addEventListener("load", checkInView);
+window.addEventListener("scroll", function() {
   stickyFunc();
   sectionDetection();
-};
+  checkInView();
+});
+
 
 // Get the navbar
 var navbar = document.querySelector(".sidebar");
@@ -64,14 +78,6 @@ function removeActiveClass() {
     el.classList.remove("side-nav__item--active");
   });
 }
-/*
-sideNavItems.forEach(el =>
-  el.addEventListener("click", () => {
-    removeActiveClass();
-    el.classList.add("side-nav__item--active");
-  })
-);
-*/
 for (let i = 0; i < sideNavItems.length - 1; i++) {
   sideNavItems[i].addEventListener("click", () => {
     removeActiveClass();
@@ -105,7 +111,8 @@ function isElementInViewport(el) {
     rect.top >= 50 &&
     rect.left >= 0 &&
     rect.bottom <=
-      (window.innerHeight +100|| document.documentElement.clientHeight +100) &&
+      (window.innerHeight + 100 ||
+        document.documentElement.clientHeight + 100) &&
     rect.right <= (window.innerWidth || document.documentElement.clientWidth)
   );
 }
@@ -122,5 +129,32 @@ function checkInView() {
   }
 }
 
-window.addEventListener("load", checkInView);
-window.addEventListener("scroll", checkInView);
+///CONTEXT MENU
+/////////////////////////////////////
+/*
+function isHover(e) {
+  return e.parentElement.querySelector(":hover") === e;
+}
+const contextMenu = document.querySelector("ul.contextMenu");
+document.addEventListener("contextmenu", function(event) {
+  event.preventDefault();
+  contextMenu.classList.remove("hidden");
+  if (event.pageY + 80 < window.innerHeight) {
+    contextMenu.style["top"] = event.pageY + 5 + "px";
+    console.log("true");
+  } else {
+    contextMenu.style["top"] = window.innerHeight - 60 + "px";
+  }
+  if (event.pageX + 180 < window.innerWidth) {
+    contextMenu.style["left"] = event.pageX + 10 + "px";
+  } else {
+    contextMenu.style["left"] = window.innerWidth - 180 + "px";
+  }
+});
+
+document.addEventListener("click", function() {
+  if (!isHover(contextMenu)) {
+    contextMenu.classList.add("hidden");
+  }
+});
+*/  
