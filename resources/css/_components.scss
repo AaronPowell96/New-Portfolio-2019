@@ -20,7 +20,7 @@ ul.contextMenu {
     transition: color 0.4s, background-color 0.4s;
   }
 
-  span {
+  &__copy {
     // align-content: center;
     color: var(--color-primary);
     grid-column: 1/-1;
@@ -150,7 +150,9 @@ ul.hidden.contextMenu {
   }
   &__link,
   &__link:link,
-  &__link:visited {
+  &__link:visited,
+  &__link>* {
+  
     text-decoration: none;
     color: var(--color-grey-light-1);
     text-transform: uppercase;
@@ -160,19 +162,26 @@ ul.hidden.contextMenu {
     justify-content: center;
     align-content: stretch;
     transition: color 1s;
+    
   }
 
   &__link:hover,
-  &__link:active {
+  &__link:active  {
+    &>*{
     color: var(--color-primary);
     &.close::after,
     &.close::before {
       background-color: var(--color-primary);
     }
   }
-  &__item--active > .side-nav__link {
-    color: var(--color-primary-light);
   }
+  &__item--active > .side-nav__link,
+ {
+    color: var(--color-primary-light);
+    &>*{
+      color: var(--color-primary-light);
+    }
+}
 
   &__item {
     position: relative;
@@ -419,9 +428,13 @@ ul.hidden.contextMenu {
     & > div > i {
       justify-self: center;
       font-size: 3rem;
+      padding-top: 1rem;
       color: var(--color-grey-light-1);
       transition: all 0.3s;
       cursor: pointer;
+      @media only screen and (min-width: 480px) {
+        font-size: 5rem;
+      }
       &.icon {
         &-gh:hover {
           color: rgb(144, 57, 161);

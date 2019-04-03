@@ -42,6 +42,12 @@ body {
   color: var(--color-primary);
 }
 
+@media only screen and (min-width: 480px) {
+  body {
+    font-size: 2.2rem;
+  }
+}
+
 h1,
 h2,
 h3 {
@@ -54,15 +60,22 @@ h3 {
 }
 
 h1 {
-  font-size: 3.5rem;
+  font-size: 1.8em;
+}
+
+@media only screen and (min-width: 480px) {
+  h1 {
+    font-size: 2.5em;
+  }
 }
 
 h2 {
-  font-size: 2.5rem;
+  font-size: 1.5em;
 }
 
 h3 {
-  font-size: 2rem;
+  font-size: 1.3em;
+  padding: 0;
 }
 
 .container {
@@ -105,7 +118,7 @@ ul.contextMenu * {
   transition: color 0.4s, background-color 0.4s;
 }
 
-ul.contextMenu span {
+ul.contextMenu__copy {
   color: var(--color-primary);
   grid-column: 1/-1;
   font-size: 1.2rem;
@@ -284,7 +297,8 @@ ul.hidden.contextMenu {
   border-bottom: 1px solid white;
 }
 
-.side-nav__link, .side-nav__link:link, .side-nav__link:visited {
+.side-nav__link, .side-nav__link:link, .side-nav__link:visited,
+.side-nav__link > * {
   text-decoration: none;
   color: var(--color-grey-light-1);
   text-transform: uppercase;
@@ -301,15 +315,19 @@ ul.hidden.contextMenu {
   transition: color 1s;
 }
 
-.side-nav__link:hover, .side-nav__link:active {
+.side-nav__link:hover > *, .side-nav__link:active > * {
   color: var(--color-primary);
 }
 
-.side-nav__link:hover.close::after, .side-nav__link:hover.close::before, .side-nav__link:active.close::after, .side-nav__link:active.close::before {
+.side-nav__link:hover > *.close::after, .side-nav__link:hover > *.close::before, .side-nav__link:active > *.close::after, .side-nav__link:active > *.close::before {
   background-color: var(--color-primary);
 }
 
 .side-nav__item--active > .side-nav__link {
+  color: var(--color-primary-light);
+}
+
+.side-nav__item--active > .side-nav__link > * {
   color: var(--color-primary-light);
 }
 
@@ -615,10 +633,17 @@ ul.hidden.contextMenu {
   -ms-grid-column-align: center;
       justify-self: center;
   font-size: 3rem;
+  padding-top: 1rem;
   color: var(--color-grey-light-1);
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
   cursor: pointer;
+}
+
+@media only screen and (min-width: 480px) {
+  .landingPage > .icons > div > i {
+    font-size: 5rem;
+  }
 }
 
 .landingPage > .icons > div > i.icon-gh:hover {
