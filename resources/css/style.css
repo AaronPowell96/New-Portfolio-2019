@@ -40,12 +40,19 @@ body {
   font-weight: 400;
   font-size: 1.8rem;
   color: var(--color-primary);
+  text-decoration: none;
 }
 
 @media only screen and (min-width: 480px) {
   body {
-    font-size: 2.2rem;
+    font-size: 1.9rem;
   }
+}
+
+a:link,
+a:visited,
+a {
+  text-decoration: none;
 }
 
 h1,
@@ -65,7 +72,7 @@ h1 {
 
 @media only screen and (min-width: 480px) {
   h1 {
-    font-size: 2.5em;
+    font-size: 2em;
   }
 }
 
@@ -76,6 +83,50 @@ h2 {
 h3 {
   font-size: 1.3em;
   padding: 0;
+}
+
+/* raleway-regular - latin */
+@font-face {
+  font-family: "Raleway";
+  font-style: normal;
+  font-weight: 400;
+  src: url("/resources/fonts/raleway-v13-latin-regular.eot");
+  /* IE9 Compat Modes */
+  src: local("Raleway"), local("Raleway-Regular"), url("/resources/fonts/raleway-v13-latin-regular.eot?#iefix") format("embedded-opentype"), url("/resources/fonts/raleway-v13-latin-regular.woff2") format("woff2"), url("/resources/fonts/raleway-v13-latin-regular.woff") format("woff"), url("/resources/fonts/raleway-v13-latin-regular.ttf") format("truetype"), url("/resources/fonts/raleway-v13-latin-regular.svg#Raleway") format("svg");
+  /* Legacy iOS */
+}
+
+/* raleway-600 - latin */
+@font-face {
+  font-family: "Raleway";
+  font-style: normal;
+  font-weight: 600;
+  src: url("/resources/fonts/raleway-v13-latin-600.eot");
+  /* IE9 Compat Modes */
+  src: local("Raleway SemiBold"), local("Raleway-SemiBold"), url("/resources/fonts/raleway-v13-latin-600.eot?#iefix") format("embedded-opentype"), url("/resources/fonts/raleway-v13-latin-600.woff2") format("woff2"), url("/resources/fonts/raleway-v13-latin-600.woff") format("woff"), url("/resources/fonts/raleway-v13-latin-600.ttf") format("truetype"), url("/resources/fonts/raleway-v13-latin-600.svg#Raleway") format("svg");
+  /* Legacy iOS */
+}
+
+/* montserrat-regular - latin */
+@font-face {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 400;
+  src: url("/resources/fonts/montserrat-v13-latin-regular.eot");
+  /* IE9 Compat Modes */
+  src: local("Montserrat Regular"), local("Montserrat-Regular"), url("/resources/fonts/montserrat-v13-latin-regular.eot?#iefix") format("embedded-opentype"), url("/resources/fonts/montserrat-v13-latin-regular.woff2") format("woff2"), url("/resources/fonts/montserrat-v13-latin-regular.woff") format("woff"), url("/resources/fonts/montserrat-v13-latin-regular.ttf") format("truetype"), url("/resources/fonts/montserrat-v13-latin-regular.svg#Montserrat") format("svg");
+  /* Legacy iOS */
+}
+
+/* montserrat-600 - latin */
+@font-face {
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 600;
+  src: url("/resources/fonts/montserrat-v13-latin-600.eot");
+  /* IE9 Compat Modes */
+  src: local("Montserrat SemiBold"), local("Montserrat-SemiBold"), url("/resources/fonts/montserrat-v13-latin-600.eot?#iefix") format("embedded-opentype"), url("/resources/fonts/montserrat-v13-latin-600.woff2") format("woff2"), url("/resources/fonts/montserrat-v13-latin-600.woff") format("woff"), url("/resources/fonts/montserrat-v13-latin-600.ttf") format("truetype"), url("/resources/fonts/montserrat-v13-latin-600.svg#Montserrat") format("svg");
+  /* Legacy iOS */
 }
 
 .container {
@@ -642,7 +693,7 @@ ul.hidden.contextMenu {
 
 @media only screen and (min-width: 480px) {
   .landingPage > .icons > div > i {
-    font-size: 5rem;
+    font-size: 4rem;
   }
 }
 

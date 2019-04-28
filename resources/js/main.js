@@ -1,3 +1,12 @@
+////////////////////////////////////
+//Window events / User position events
+///////////////////////////////////
+window.addEventListener("load", checkInView);
+window.addEventListener("scroll", function() {
+  stickyFunc();
+  sectionDetection();
+  checkInView();
+});
 ///////////////////////////
 //Reused Functions
 //////////////////////////
@@ -24,7 +33,7 @@ document.querySelector(".title").addEventListener("click", function() {
 })();
 
 ///////////////////////////////////
-//Menu
+//Menus
 //////////////////////////////////
 
 //Submenu - hamburger menu
@@ -47,23 +56,11 @@ document.querySelector(".title").addEventListener("click", function() {
   );
 })();
 
-////////////////////////////////////
-//Window events / User position events
-///////////////////////////////////
-window.addEventListener("load", checkInView);
-window.addEventListener("scroll", function() {
-  stickyFunc();
-  sectionDetection();
-  checkInView();
-});
 
-
-// Get the navbar
+//Sticky Navigation
 var navbar = document.querySelector(".sidebar");
-// Get the offset position of the navbar
 var sticky = navbar.offsetTop;
-
-// Add the sticky class to the navbar when you reach its scroll position. Remove "sticky" when you leave the scroll position
+// Add the sticky class to the navbar when reach its scroll position. Remove "sticky" when leave the scroll position
 function stickyFunc() {
   if (window.pageYOffset >= sticky) {
     navbar.classList.add("sticky");
@@ -72,6 +69,7 @@ function stickyFunc() {
   }
 }
 
+//Adds event listener to remove all active navs and add to the one being clicked.
 const sideNavItems = document.querySelectorAll(".side-nav__item");
 function removeActiveClass() {
   sideNavItems.forEach(el => {
@@ -85,6 +83,7 @@ for (let i = 0; i < sideNavItems.length - 1; i++) {
   });
 }
 
+//Section breakpoints to switch "active" state.
 var sections = document.querySelectorAll("section");
 let section1 = sections[0].offsetTop - 300;
 let section2 = sections[1].offsetTop - 300;
@@ -103,8 +102,11 @@ function sectionDetection() {
   }
 }
 
+///////////////////////////////
+//Timeline section
+//////////////////////////////
 const highlights = document.querySelectorAll(".timeline li");
-
+//Checks if each element called in above the windows innerheight and shows, removes when 50 below top of window.
 function isElementInViewport(el) {
   let rect = el.getBoundingClientRect();
   return (
@@ -116,7 +118,7 @@ function isElementInViewport(el) {
     rect.right <= (window.innerWidth || document.documentElement.clientWidth)
   );
 }
-
+//Checks specific highlight element is wihin the viewport
 function checkInView() {
   for (let i = 0; i < highlights.length; i++) {
     if (isElementInViewport(highlights[i])) {
@@ -129,6 +131,7 @@ function checkInView() {
   }
 }
 
+/////////////////////////////////////
 ///CONTEXT MENU
 /////////////////////////////////////
 /*
