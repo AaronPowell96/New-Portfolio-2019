@@ -771,9 +771,9 @@ ul.hidden.contextMenu {
   position: relative;
   width: 40rem;
   background: var(--color-grey-light-2);
-  -webkit-box-shadow: 0px 0px 10px 0px var(--color-grey-dark-3);
-          box-shadow: 0px 0px 10px 0px var(--color-grey-dark-3);
-  border-radius: 0px;
+  -webkit-box-shadow: 0px 0px 5px 0px var(--color-grey-dark-3);
+          box-shadow: 0px 0px 5px 0px var(--color-grey-dark-3);
+  border-radius: 3px;
   display: -ms-grid;
   display: grid;
   -webkit-box-align: center;
@@ -785,8 +785,8 @@ ul.hidden.contextMenu {
   justify-items: center;
 }
 
-.timeline ul li div h2 {
-  padding-top: 2.5rem;
+.timeline ul li div h3 {
+  padding-top: 2rem;
 }
 
 .timeline ul li div time {
@@ -819,9 +819,8 @@ ul.hidden.contextMenu {
 
 .timeline ul li div .highlight p {
   text-align: center;
-  font-weight: 600;
-  font-size: 2.2rem;
-  line-height: 2.2rem;
+  font-weight: 400;
+  line-height: 2rem;
 }
 
 .timeline ul li:nth-of-type(odd) > div {
