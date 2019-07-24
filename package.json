@@ -1,0 +1,22 @@
+ {
+  "name": "new-portfolio-2019",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "compile:sass": "node-sass resources/css/style.scss resources/css/style.css --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AaronPowell96/New-Portfolio-2019.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AaronPowell96/New-Portfolio-2019/issues"
+  },
+  "homepage": "https://github.com/AaronPowell96/New-Portfolio-2019#readme",
+  "devDependencies": {
+    "node-sass": "^4.12.0"
+  }
+}
