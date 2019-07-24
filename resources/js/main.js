@@ -7,6 +7,37 @@ window.addEventListener("scroll", function() {
   sectionDetection();
   checkInView();
 });
+///////////////////////////////////
+//Menus
+//////////////////////////////////
+
+//Submenu - hamburger menu
+(() => {
+  const subMenu = document.querySelector(".side-nav__subMenu");
+  const moredots = document.querySelector(".more-dots");
+  function closeBurgerMenu(){
+      subMenu.classList.remove("scale-out-ver-top");
+      subMenu.classList.remove("scale-in-ver-top");
+      moredots.firstElementChild.classList.remove("open");
+      moredots.firstElementChild.firstElementChild.classList.add("fa-bars");
+  };
+  window.addEventListener("click", closeBurgerMenu);
+  moredots.addEventListener(
+    "click",
+    function(ev) {
+      console.log(this.firstElementChild);
+      this.firstElementChild.classList.toggle("open");
+      this.firstElementChild.firstElementChild.classList.toggle("fa-bars");
+      if (subMenu.classList.contains("scale-in-ver-top")) {
+        subMenu.classList.toggle("scale-out-ver-top");
+      } else {
+        subMenu.classList.toggle("scale-in-ver-top");
+      }
+      ev.stopPropagation();
+    },
+    true
+  );
+})();
 ///////////////////////////
 //Reused Functions
 //////////////////////////
@@ -32,31 +63,12 @@ document.querySelector(".title").addEventListener("click", function() {
   }
 })();
 
-///////////////////////////////////
-//Menus
-//////////////////////////////////
 
-//Submenu - hamburger menu
-(() => {
-  const subMenu = document.querySelector(".side-nav__subMenu");
-  const moredots = document.querySelector(".more-dots");
-  moredots.addEventListener(
-    "click",
-    function() {
-      this.firstElementChild.classList.toggle("open");
-      this.firstElementChild.firstElementChild.classList.toggle("fa-bars");
-      console.log(subMenu);
-      if (subMenu.classList.contains("scale-in-ver-top")) {
-        subMenu.classList.toggle("scale-out-ver-top");
-      } else {
-        subMenu.classList.toggle("scale-in-ver-top");
-      }
-    },
-    true
-  );
-})();
-
-
+//Section breakpoints to switch "active" state.
+const sections = document.querySelectorAll("section");
+let section1 = sections[0].offsetTop - 300;
+let section2 = sections[1].offsetTop - 300;
+//let section3 = sections[2].offsetTop - 60;
 //Sticky Navigation
 var navbar = document.querySelector(".sidebar");
 var sticky = navbar.offsetTop;
@@ -64,8 +76,14 @@ var sticky = navbar.offsetTop;
 function stickyFunc() {
   if (window.pageYOffset >= sticky) {
     navbar.classList.add("sticky");
+    sections.forEach((section)=>{
+      section.style.paddingTop = "62px";
+    })
   } else {
     navbar.classList.remove("sticky");
+    sections.forEach((section)=>{
+      section.style.paddingTop = "30px";
+    })
   }
 }
 
@@ -82,12 +100,6 @@ for (let i = 0; i < sideNavItems.length - 1; i++) {
     sideNavItems[i].classList.add("side-nav__item--active");
   });
 }
-
-//Section breakpoints to switch "active" state.
-var sections = document.querySelectorAll("section");
-let section1 = sections[0].offsetTop - 300;
-let section2 = sections[1].offsetTop - 300;
-//let section3 = sections[2].offsetTop - 60;
 
 function sectionDetection() {
   if (window.pageYOffset >= section1 && !(window.pageYOffset >= section2)) {
