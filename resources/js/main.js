@@ -1,6 +1,8 @@
 ////////////////////////////////////
 //Window events / User position events
 ///////////////////////////////////
+document.addEventListener("DOMContentLoaded", theDomHasLoaded, false);
+function theDomHasLoaded() {
 window.addEventListener("load", checkInView);
 window.addEventListener("scroll", function() {
   stickyFunc();
@@ -65,15 +67,13 @@ document.querySelector(".title").addEventListener("click", function() {
 
 
 //Section breakpoints to switch "active" state.
-const sections = document.querySelectorAll("section");
-let section1 = sections[0].offsetTop - 300;
-let section2 = sections[1].offsetTop - 300;
 //let section3 = sections[2].offsetTop - 60;
 //Sticky Navigation
-var navbar = document.querySelector(".sidebar");
-var sticky = navbar.offsetTop;
 // Add the sticky class to the navbar when reach its scroll position. Remove "sticky" when leave the scroll position
 function stickyFunc() {
+  const sections = document.querySelectorAll("section");
+  var navbar = document.querySelector(".sidebar");
+  var sticky = navbar.offsetTop;
   if (window.pageYOffset >= sticky) {
     navbar.classList.add("sticky");
     sections.forEach((section)=>{
@@ -102,6 +102,9 @@ for (let i = 0; i < sideNavItems.length - 1; i++) {
 }
 
 function sectionDetection() {
+  const sections = document.querySelectorAll("section");
+  let section1 = sections[0].offsetTop - 300;
+  let section2 = sections[1]?.offsetTop - 300;
   if (window.pageYOffset >= section1 && !(window.pageYOffset >= section2)) {
     removeActiveClass();
     sideNavItems[1].classList.add("side-nav__item--active");
@@ -117,7 +120,6 @@ function sectionDetection() {
 ///////////////////////////////
 //Timeline section
 //////////////////////////////
-const highlights = document.querySelectorAll(".timeline li");
 //Checks if each element called in above the windows innerheight and shows, removes when 50 below top of window.
 function isElementInViewport(el) {
   let rect = el.getBoundingClientRect();
@@ -125,13 +127,15 @@ function isElementInViewport(el) {
     rect.top >= 50 &&
     rect.left >= 0 &&
     rect.bottom <=
-      (window.innerHeight + 100 ||
-        document.documentElement.clientHeight + 100) &&
-    rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-  );
-}
-//Checks specific highlight element is wihin the viewport
-function checkInView() {
+    (window.innerHeight + 100 ||
+      document.documentElement.clientHeight + 100) &&
+      rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+      );
+    }
+    //Checks specific highlight element is wihin the viewport
+    function checkInView() {
+      const highlights = document.querySelectorAll(".timeline li");
+  if(highlights){
   for (let i = 0; i < highlights.length; i++) {
     if (isElementInViewport(highlights[i])) {
       if (!highlights[i].classList.contains("in-view")) {
@@ -141,6 +145,7 @@ function checkInView() {
       highlights[i].classList.remove("in-view");
     }
   }
+}
 }
 
 /////////////////////////////////////
@@ -171,3 +176,4 @@ document.addEventListener("click", function() {
     contextMenu.classList.add("hidden");
   }
 });  
+}
