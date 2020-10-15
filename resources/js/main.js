@@ -146,7 +146,6 @@ function checkInView() {
 /////////////////////////////////////
 ///CONTEXT MENU
 /////////////////////////////////////
-/*
 function isHover(e) {
   return e.parentElement.querySelector(":hover") === e;
 }
@@ -171,5 +170,4 @@ document.addEventListener("click", function() {
   if (!isHover(contextMenu)) {
     contextMenu.classList.add("hidden");
   }
-});
-*/  
+});  
